@@ -1,4 +1,4 @@
-import { Book, BookSchema } from '../module/book.js';
+import { Book, BookSchema } from '../models/book.js';
 
 const controllerBook = {
     createBook: async (req, res) => {
@@ -16,7 +16,7 @@ const controllerBook = {
             res.status(200).json({ msg: 'Livro cadastrado com sucesso', data: newBook });
         } catch (error) {
             console.error(error);
-            res.status(500).json({ msg: 'Ocorreu um erro no servidor, tente novamente mais tarde' });
+            res.status(500).json({ msg: 'Ocorreu um erro no servidor, tente novamente mais tarde', error: error });
         }
     },
     listBooks: async (req, res) => {
@@ -26,7 +26,7 @@ const controllerBook = {
             res.status(200).json({ msg: 'Livros obtidos com sucesso', data: books });
         } catch (error) {
             console.error(error);
-            res.status(500).json({ msg: 'Ocorreu um erro no servidor, tente novamente mais tarde' });
+            res.status(500).json({ msg: 'Ocorreu um erro no servidor, tente novamente mais tarde', error: error });
         }
     },
     getOneBook: async (req, res) => {
@@ -42,7 +42,7 @@ const controllerBook = {
             res.status(200).json({ msg: 'Livro obtido com sucesso', data: book });
         } catch (error) {
             console.error(error);
-            res.status(500).json({ msg: 'Ocorreu um erro no servidor, tente novamente mais tarde' });
+            res.status(500).json({ msg: 'Ocorreu um erro no servidor, tente novamente mais tarde', error: error });
         }
     },
     updateBook: async (req, res) => {
@@ -70,7 +70,7 @@ const controllerBook = {
             res.status(200).json({ msg: 'Livro atualizado com sucesso', data: updatedBook });
         } catch (error) {
             console.error(error);
-            res.status(500).json({ msg: 'Ocorreu um erro no servidor, tente novamente mais tarde' });
+            res.status(500).json({ msg: 'Ocorreu um erro no servidor, tente novamente mais tarde', error: error });
         }
 
     },
@@ -83,7 +83,7 @@ const controllerBook = {
             res.status(200).json({ msg: 'Livro deletado com sucesso' });
         } catch (error) {
             console.error(error);
-            res.status(500).json({ msg: 'Ocorreu um erro no servidor, tente novamente mais tarde' });
+            res.status(500).json({ msg: 'Ocorreu um erro no servidor, tente novamente mais tarde', error: error });
         }
     },
 }

@@ -4,6 +4,7 @@ import cors from 'cors';
 import { config } from 'dotenv';
 import conectDB from './config/db.js';
 import bookRouter from './routes/bookRoutes.js'
+import userRouter from './routes/userRoutes.js'
 
 config()
 conectDB()
@@ -15,6 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors())
 
 app.use('/book', bookRouter)
+app.use('/user', userRouter)
 
 const PORT = process.env.PORT || 5000;
 
